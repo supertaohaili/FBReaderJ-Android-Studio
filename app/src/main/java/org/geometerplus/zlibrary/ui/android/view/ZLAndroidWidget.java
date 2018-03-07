@@ -31,6 +31,7 @@ import org.geometerplus.zlibrary.core.application.ZLApplication;
 import org.geometerplus.zlibrary.core.application.ZLKeyBindings;
 import org.geometerplus.zlibrary.core.util.SystemInfo;
 import org.geometerplus.zlibrary.core.view.ZLView;
+import org.geometerplus.zlibrary.core.view.ZLViewEnums;
 import org.geometerplus.zlibrary.core.view.ZLViewWidget;
 
 import org.geometerplus.zlibrary.ui.android.view.animation.*;
@@ -112,23 +113,25 @@ public class ZLAndroidWidget extends MainView implements ZLViewWidget, View.OnLo
 		final ZLView.Animation type = ZLApplication.Instance().getCurrentView().getAnimationType();
 		if (myAnimationProvider == null || myAnimationType != type) {
 			myAnimationType = type;
-			switch (type) {
-				case none:
-					myAnimationProvider = new NoneAnimationProvider(myBitmapManager);
-					break;
-				case curl:
-					myAnimationProvider = new CurlAnimationProvider(myBitmapManager);
-					break;
-				case slide:
-					myAnimationProvider = new SlideAnimationProvider(myBitmapManager);
-					break;
-				case slideOldStyle:
-					myAnimationProvider = new SlideOldStyleAnimationProvider(myBitmapManager);
-					break;
-				case shift:
-					myAnimationProvider = new ShiftAnimationProvider(myBitmapManager);
-					break;
-			}
+
+//			switch (type) {
+//				case none:
+//					myAnimationProvider = new NoneAnimationProvider(myBitmapManager);
+//					break;
+//				case curl:
+//					myAnimationProvider = new CurlAnimationProvider(myBitmapManager);
+//					break;
+//				case slide:
+//					myAnimationProvider = new SlideAnimationProvider(myBitmapManager);
+//					break;
+//				case slideOldStyle:
+//					myAnimationProvider = new SlideOldStyleAnimationProvider(myBitmapManager);
+//					break;
+//				case shift:
+//					myAnimationProvider = new ShiftAnimationProvider(myBitmapManager);
+//					break;
+//			}
+			myAnimationProvider = new CurlAnimationProvider(myBitmapManager);
 		}
 		return myAnimationProvider;
 	}
